@@ -4,6 +4,8 @@ PR_UL='┌'
 PR_LL='└'
 PR_UR='┐'
 PR_LR='┘'
+PR_ARROWL='◄'
+PR_ARROWR='►'
 
 setopt promptsubst
 autoload -U add-zsh-hook
@@ -65,11 +67,11 @@ function get_top {
 }
 
 function get_bottom {
-    local bottom=%F{33}$PR_LL%F{37}'[%F{240}%h%F{37}]'%F{33}$PR_BAR$MYVIRTENV%F{61}">> "%F{254}
+    local bottom=%F{33}$PR_LL%F{37}'[%F{240}%h%F{37}]'%F{33}$PR_BAR$MYVIRTENV%F{61}$PR_ARROWR$PR_ARROWR" "%F{254}
     echo $bottom
 }
 
-MYVIRTENV="%F{61}>"
+MYVIRTENV="%F{61}►"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=%F{037}"["%F{254}
 ZSH_THEME_GIT_PROMPT_SUFFIX=$(git_prompt_status)%F{037}"]"
@@ -85,4 +87,4 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=%F{190}"✭"
 PS1='$(get_top)
 $(get_bottom)'
 
-RPS1=%F{61}'<<<'%F{33}$PR_BAR$PR_LR%F{245}
+RPS1=%F{61}$PR_ARROWL$PR_ARROWL$PR_ARROWL%F{33}$PR_BAR$PR_LR%F{245}
