@@ -28,15 +28,14 @@ function get_pwd_len {
     local TERMWIDTH
     (( TERMWIDTH = ${COLUMNS} - 1 ))
     local top='--('$(get_user)'@'$(get_host)':)'$(git_prompt_info)'--'
-    local toplen=${#${top}}
+    local toplen=${#${(S%%)top//(\%[F1]\{*\})}}
     local pwdlen=${#${(%):-%~}}
     local total
     (( total = $toplen + $pwdlen ))
     if [[ $total -gt $TERMWIDTH ]]; then
-        echo (( $TERMWIDTH - $total ))
-    else
-        echo $pwdlen
+        (( pwdlen = $TERMWIDTH - $toplen ))
     fi
+    echo $pwdlen
 }
 
 function get_fill {
@@ -44,7 +43,7 @@ function get_fill {
     (( TERMWIDTH = ${COLUMNS} - 1 ))
     local top='--('$(get_user)'@'$(get_host)':)'$(git_prompt_info)'--'
     local toplen=${#${(S%%)top//(\%[F1]\{*\})}}
-    local pwdlen=${#${(%):-%~}}
+    local pwdlen=$(get_pwd_len)
     local total
     (( total = $toplen + $pwdlen ))
     if [[ $total -lt $TERMWIDTH ]]; then
@@ -54,7 +53,7 @@ function get_fill {
 
 function get_top {
     ZSH_THEME_GIT_PROMPT_SUFFIX=$(git_prompt_status)%F{037}"]"
-    local pwd=${(%):-%$(get_pwd_len)<..<%~}
+    local pwd=${(%):-%$(get_pwd_len)<...<%~}
 
     local top=%F{33}$PR_UL$PR_BAR
     top=$top%F{37}"("%F{136}$(get_user)%F{125}"@"%F{136}$(get_host)%F{125}":"%F{136}$pwd
