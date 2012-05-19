@@ -1,0 +1,79 @@
+snippet model "django model" b
+class ${1:MyModel}(models.Model):
+	"""
+	${$:Docstring for $1}
+	"""
+
+	def __unicode__(self):
+		return
+endsnippet
+
+snippet form "django form" b
+class ${1:MyForm}(forms.Form):
+	"""
+	${2:Docstring for $1}
+	"""
+endsnippet
+
+snippet char "django CharField model"
+models.CharField(max_length=${1:200}${2:...})
+endsnippet
+
+snippet char "django CharField model" !b
+${1:field} = models.CharField(max_length=${2:200}${3:...})
+endsnippet
+
+snippet fkey "django ForeignKey model"
+models.ForeignKey('$1')
+endsnippet
+
+snippet fkey "django ForeignKey model" !b
+${1:field} = models.ForeignKey('$2')
+endsnippet
+
+snippet view "django view" b
+class ${1:MyView}(generic.View):
+	"""
+	${2:Docstring for $1}
+	"""
+	template_name = '${3}'
+
+	def get(self, request$4, **kwargs):
+		pass
+
+	def post(self, request$4, **kwargs):
+		pass
+endsnippet
+
+snippet view "django view w/ login_required" b
+class ${1:MyView}(generic.View):
+	"""
+	${2:Docstring for $1}
+	"""
+	template_name = '${3}'
+
+	def get(self, request$4, **kwargs):
+		pass
+
+	def post(self, request$4, **kwargs):
+		pass
+
+	@method_decorator(login_required)
+	def dispatch(self, *args, **kwargs):
+		return super($1, self).dispatch(*args, **kwargs)
+endsnippet
+
+snippet wh "while loop" b
+while ${1:condition}:
+	${2:code...}
+
+snippet prop "property" b
+def ${1:foo}():
+	doc = "${2:$1 property.}"
+
+	def fget(self):
+		${3:return self._$1}
+
+	def fset(self, value):
+		self._$1 = value
+endsnippet

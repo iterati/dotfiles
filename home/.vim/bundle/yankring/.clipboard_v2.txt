@@ -1,0 +1,100 @@
+255,v
+j,v
+[`basename \"$VIRTUAL_ENV\"`],v
+,V
+ ,v
+$PR_BAR,v
+$(git_prompt_status),v
+muse,v
+mine,v
+PROMPT=$PROMPT$MY_WANG,V
+MY_WANG="BIG!",V
+setopt promptsubst,V
+autoload -U add-zsh-hook,V
+%F{254},v
+4,v
+5,v
+2,v
+{,v
+f,v
+%,v
+},v
+',v
+G,v
+$,v
+],v
+",v
+%{$reset_color%},v
+r,v
+o,v
+l,v
+c,v
+_,v
+t,v
+e,v
+s,v
+ZSH_THEME_GIT_PROMPT_ADDED="%{$FG[082]%}✚%{$reset_color%}"ZSH_THEME_GIT_PROMPT_MODIFIED="%{$FG[166]%}✹%{$reset_color%}"ZSH_THEME_GIT_PROMPT_DELETED="%{$FG[160]%}✖%{$reset_color%}"ZSH_THEME_GIT_PROMPT_RENAMED="%{$FG[220]%}➜%{$reset_color%}"ZSH_THEME_GIT_PROMPT_UNMERGED="%{$FG[082]%}═%{$reset_color%}"ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$FG[190]%}✭%{$reset_color%}",V
+>,v
+%F{61},v
+245,v
+VITRUAL_ENV,v
+[`basename \`dirname \"$VIRTUAL_ENV\"\``],v
+        PS1="$PS1",V
+    export MYVIRTENV,V
+        MYVIRTENV="[`basename \"$VIRTUAL_ENV\"`] $PS1",V
+        MYVIRTENV="[`basename \`dirname \"$VIRTUAL_ENV\"\``] $PS1",V
+`,v
+\,v
+V,v
+N,v
+E,v
+L,v
+A,v
+U,v
+T,v
+R,v
+I,v
+m,v
+a,v
+n,v
+i,v
+d,v
+b,v
+[,v
+#,v
+},V
+    echo ,V
+function stripcolor () {,V
+(,v
+),v
+7,v
++,v
+#!/usr/bin/env zsh,V
+[`basename \`dirname \"$VIRTUAL_ENV\"\``] $PS1",v
+254,v
+230,v
+0,v
+3,v
+F,v
+136,v
+✘,v
+%F{37},v
+B,v
+P,v
+-,v
+O,v
+M,v
+ZSH_THEME_GIT_PROMPT_PREFIX="("ZSH_THEME_GIT_PROMPT_SUFFIX="%$GIT_PROMPT_INFO%})",V
+<,v
+.,v
+w,v
+p,v
+g,v
+:,v
+$(get_fill)$(git_prompt_info),v
+$(get_user)@$(get_host):,v
+setopt prompt_subst,V
+=,v
+h,v
+to_fill,v
+RPS1=%F{33}─┘%F{254},V
