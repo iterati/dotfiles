@@ -53,6 +53,7 @@ function get_fill {
 }
 
 function get_top {
+    ZSH_THEME_GIT_PROMPT_SUFFIX=$(git_prompt_status)%F{037}"]"
     local pwd=${(%):-%$(get_pwd_len)<..<%~}
 
     local top=%F{33}$PR_UL$PR_BAR
