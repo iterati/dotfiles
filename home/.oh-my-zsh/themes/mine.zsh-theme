@@ -65,14 +65,14 @@ function get_top {
 }
 
 function get_bottom {
-    local bottom=%F{33}$PR_LL$PR_BAR$MYVIRTENV%F{61}"> "%F{254}
+    local bottom=%F{33}$PR_LL$PR_BAR$MYVIRTENV%F{61}">> "%F{254}
     echo $bottom
 }
 
 MYVIRTENV="%F{61}>"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=%F{037}"["%F{254}
-ZSH_THEME_GIT_PROMPT_SUFFIX=%F{037}"]"
+ZSH_THEME_GIT_PROMPT_SUFFIX=$(git_prompt_status)%F{037}"]"
 ZSH_THEME_GIT_PROMPT_DIRTY=%F{160}"✘"
 ZSH_THEME_GIT_PROMPT_CLEAN=%F{064}"✔"
 ZSH_THEME_GIT_PROMPT_ADDED=%F{082}"✚"
@@ -85,4 +85,4 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED=%F{190}"✭"
 PS1='$(get_top)
 $(get_bottom)'
 
-RPS1=$(git_prompt_status)' '%F{33}'$PR_BAR$PR_LR'%F{245}
+RPS1=%F{61}'<<<'%F{33}$PR_BAR$PR_LR%F{245}
