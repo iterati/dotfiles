@@ -65,7 +65,7 @@ function get_top {
 }
 
 function get_bottom {
-    local bottom=%F{33}$PR_LL$PR_BAR$MYVIRTENV%F{61}">> "%F{254}
+    local bottom=%F{33}$PR_LL%F{37}'[%F{240}%h%F{37}]'%F{33}$PR_BAR$MYVIRTENV%F{61}">> "%F{254}
     echo $bottom
 }
 
