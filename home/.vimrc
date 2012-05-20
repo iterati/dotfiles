@@ -8,38 +8,31 @@ command! W :w
 " No permissions?
 cmap W! w !sudo tee % >/dev/null
 
+map <leader>rc <c-w>s :e $MYVIMRC<CR>
 map <silent> <leader>V :source $MYVIMRC<CR>
-nmap <leader>c :copen<CR>
-nmap <leader>cc :cclose<CR>
 
 " Open new splits
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>W <C-w>s
-nnoremap <leader>s :new<CR>
 
-" Left/Right arrow keys change buffers in all modes
+" Left/Right arrow keys change buffers
 noremap <Left> <Esc>:bp<CR>
-inoremap <Left> <Esc>:bp<CR>
-nnoremap <Left> <Esc>:bp<CR>
-vnoremap <Left> <Esc>:bp<CR>
 noremap <Right> <Esc>:bn<CR>
-inoremap <Right> <Esc>:bn<CR>
-nnoremap <Right> <Esc>:bn<CR>
-vnoremap <Right> <Esc>:bn<CR>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
 
 " And up/down moves up/down
-noremap <up> <c-u>
-noremap <down> <c-d>
+noremap <up> <c-b>
+noremap <down> <c-f>
 inoremap <up> <nop>
 inoremap <down> <nop>
 
 " Smash escape
 inoremap jk <esc>
+inoremap kj <esc>
+inoremap hj <esc>
 
-" Lazy
-nnoremap ; :
-
-" More lazy
+" Clear highlights
 noremap <silent><leader>/ :nohls<CR>
 
 " Panel plugins
@@ -56,29 +49,22 @@ let g:indent_guides_enable_on_vim_startup = 1
 " Yankring is kewl, too
 let g:yankring_history_dir = '~/.vim/bundle/yankring'
 let g:yankring_history_file = '.clipboard'
-nnoremap <leader>r :YRShow<CR>
-nnoremap <leader>p :YRGetElem<CR>
+nnoremap <leader>p :YRShow<CR>
 
 " Ultisnips > snipmate? Only time will tell
 let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsListSnippets = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 nnoremap <leader>ue :UltiSnipsEdit<CR>
 
-" Ctrl-P
-noremap <c-p> :CtrlP<CR>
-
 " Tabularize
 vnoremap <silent> <Leader>t> :Tabularize /=><CR>
 vnoremap <silent> <Leader>t= :Tabularize /=<CR>
 vnoremap <silent> <Leader>t, :Tabularize /,<CR>
-
-" Minibufexpl
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplModSelTarget = 1
 
 " Supatab!
 let g:SuperTabDefaultCompletionType = "context"
@@ -93,7 +79,7 @@ filetype on
 filetype plugin indent on
 
 set number
-set numberwidth=3
+set numberwidth=4
 set background=dark
 set title
 set wildmenu
@@ -112,6 +98,7 @@ set scrolloff=8
 set showmatch
 set nowrap
 set tabstop=4
+set shiftwidth=4
 set expandtab
 set smarttab
 set matchpairs+=<:>
@@ -154,6 +141,8 @@ endif
 
 autocmd FileType * setlocal colorcolumn=0
 
+autocmd FileType sippet setlocal tabstop=8 noexpandtab
+
 " Templates
 autocmd BufNewFile,BufRead *.rhtml setlocal ft=eruby
 autocmd BufNewFile,BufRead *.mako setlocal ft=mako
@@ -161,8 +150,6 @@ autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
 autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
 autocmd BufNewFile,BufRead *.html setlocal ft=htmldjango
 let html_no_rendering=1
-autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " Python
