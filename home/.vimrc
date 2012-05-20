@@ -5,6 +5,10 @@ let localleader="/"
 " Sometimes my pinky is slow
 command! W :w
 
+" Open/Close quickfix window
+map <leader>c :copen<CR>
+map <leader>cc :cclose<CR>
+
 " No permissions?
 cmap W! w !sudo tee % >/dev/null
 
@@ -41,10 +45,16 @@ map <leader>g :GundoToggle<CR>
 map <leader>td <Plug>TaskList
 nnoremap <leader>l :TagbarToggle<CR>
 
+" minibufexpl
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplModSelTarget = 1
+
 " Indent guides are kewl
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
+hi IndentGuidesOdgd ctermbg=234
+hi IndentGuidesEven ctermbg=230
 
 " Yankring is kewl, too
 let g:yankring_history_dir = '~/.vim/bundle/yankring'
@@ -62,15 +72,17 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 nnoremap <leader>ue :UltiSnipsEdit<CR>
 
 " Tabularize
-vnoremap <silent> <Leader>t> :Tabularize /=><CR>
 vnoremap <silent> <Leader>t= :Tabularize /=<CR>
+nnoremap <silent> <Leader>t= :Tabularize /=<CR>
 vnoremap <silent> <Leader>t, :Tabularize /,<CR>
+nnoremap <silent> <Leader>t, :Tabularize /,<CR>
+vnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
+nnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
 
 " Supatab!
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
-" Bundles!!!!
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -118,17 +130,15 @@ set noswapfile
 set list
 set listchars=trail:.
 
-"Display
+" Solarized
 set background=dark
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 let g:solarized_contrast="normal"
 let g:solarized_visibility="low"
-hi IndentGuidesOdgd ctermbg=236
-hi IndentGuidesEven ctermbg=8
 colorscheme solarized
 
-"Use relative numberings
+"Use relative numberings if it exists (and if it does, make an undodir)
 if exists("&relativenumber")
   set relativenumber
   set undodir=~/.vim/undodir
@@ -139,24 +149,22 @@ if exists("&relativenumber")
   silent! au FocusGained * :set relativenumber
 endif
 
+" Turn off colorcolumn first!
 autocmd FileType * setlocal colorcolumn=0
 
+" Snippet settings
 autocmd FileType sippet setlocal tabstop=8 noexpandtab
 
-" Templates
-autocmd BufNewFile,BufRead *.rhtml setlocal ft=eruby
-autocmd BufNewFile,BufRead *.mako setlocal ft=mako
-autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
-autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
+" Default html files to django templates and set up settings
 autocmd BufNewFile,BufRead *.html setlocal ft=htmldjango
+autocmd FileType html,xhtml,xml,htmldjango setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 let html_no_rendering=1
-autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " Python
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 colorcolumn=79
-      \ formatoptions+=croq softtabstop=4 cindent
+      \ formatoptions+=c softtabstop=4 cindent
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python set omnifunc=RopeCompleteFunc
 let python_highlight_all=1
 
 " CSS
