@@ -43,3 +43,4 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 
 eval `dircolors ~/.dircolors`
+
