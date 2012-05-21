@@ -129,7 +129,6 @@ set dir=~/.vim/sessions
 set noswapfile
 set list
 set listchars=trail:.
-set nobackup
 
 " Solarized
 set background=dark
