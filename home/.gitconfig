@@ -1,8 +1,0 @@
-[user]
-	name = John Miller
-	email = john.jj.miller@gmail.com
-[github]
-	user = macbony
-	token = fad3c2b1d7ae779cce55673651f0faf2
-[core]
-	excludesfile = ./.gitignore_global
