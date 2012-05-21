@@ -164,7 +164,7 @@ let html_no_rendering=1
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 colorcolumn=79
       \ formatoptions+=c softtabstop=4 cindent
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-autocmd FileType python set omnifunc=RopeCompleteFunc
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 let python_highlight_all=1
 
 " CSS
