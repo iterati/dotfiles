@@ -81,8 +81,8 @@ nnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
 
 " Supatab!
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
-let g:SuperTabLongestHighlight = 1
+"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+"let g:SuperTabLongestHighlight = 1
 set completeopt=menuone,longest
 
 filetype off
