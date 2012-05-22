@@ -36,6 +36,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 alias otsu='cd ~/htdocs/speakers.otsuka.com/htdocs; source ../virtpy/bin/activate'
 alias bounce='sudo service httpd restart'
+alias speak='cd ~/htdocs/speakerdb.com/htdocs; source ../virtpy/bin/activate'
 
 export TERM='xterm-256color'
 

@@ -36,6 +36,10 @@ inoremap jk <esc>
 inoremap kj <esc>
 inoremap hj <esc>
 
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
 " Clear highlights
 noremap <silent><leader>/ :nohls<CR>
 
