@@ -81,7 +81,9 @@ nnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
 
 " Supatab!
 let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
+let g:SuperTabLongestHighlight = 1
+set completeopt=menuone,longest
 
 filetype off
 call pathogen#runtime_append_all_bundles()
