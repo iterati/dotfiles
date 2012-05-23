@@ -94,7 +94,8 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 syntax on
 filetype on
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
 set number
 set numberwidth=4
@@ -159,7 +160,7 @@ endif
 autocmd FileType * setlocal colorcolumn=0
 
 " Snippet settings
-autocmd FileType sippet setlocal tabstop=8 noexpandtab
+autocmd FileType snippets setlocal tabstop=8 noexpandtab
 
 " Default html files to django templates and set up settings
 autocmd BufNewFile,BufRead *.html setlocal ft=htmldjango
