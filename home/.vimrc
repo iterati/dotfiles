@@ -76,8 +76,8 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 nnoremap <leader>ue :UltiSnipsEdit<CR>
 
 " Tabularize
-vnoremap <silent> <Leader>t= :Tabularize /=<CR>
-nnoremap <silent> <Leader>t= :Tabularize /=<CR>
+vnoremap <silent> <Leader>t= :Tabularize /^[^=]*\zs<CR>
+nnoremap <silent> <Leader>t= :Tabularize /^[^=]*\zs<CR>
 vnoremap <silent> <Leader>t, :Tabularize /,<CR>
 nnoremap <silent> <Leader>t, :Tabularize /,<CR>
 vnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
