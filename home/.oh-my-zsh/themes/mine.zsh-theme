@@ -4,8 +4,8 @@ PR_UL='┌'
 PR_LL='└'
 PR_UR='┐'
 PR_LR='┘'
-PR_ARROWL='◄'
-PR_ARROWR='►'
+PR_ARROWL='<'
+PR_ARROWR='>'
 
 setopt promptsubst
 autoload -U add-zsh-hook
@@ -71,7 +71,7 @@ function get_bottom {
     echo $bottom
 }
 
-MYVIRTENV="%F{61}►"
+MYVIRTENV="%F{61}>"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=%F{037}"["%F{254}
 ZSH_THEME_GIT_PROMPT_SUFFIX=$(git_prompt_status)%F{037}"]"
