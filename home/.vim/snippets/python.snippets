@@ -24,6 +24,7 @@ snippet mform "django model form" b
 class ${1:ModelForm}(forms.ModelForm):
 	"""
 	${2:@todo - Docstring for $1}
+	"""
 	class Meta:
 		model = $2
 endsnippet
@@ -89,13 +90,17 @@ class ${1:MyView}(generic.View):
 	"""
 	${2:Docstring for $1}
 	"""
-	template_name = '${3}'
+	template = '${3}'
+	response = {}
 
 	def get(self, request$4, **kwargs):
-		pass
+		self.request = request
 
 	def post(self, request$4, **kwargs):
-		pass
+		self.request = request
+
+	def render(self):
+		return render(self.request, self.template, self.response)
 endsnippet
 
 snippet view "django view w/ login_required" b
@@ -103,13 +108,16 @@ class ${1:MyView}(generic.View):
 	"""
 	${2:Docstring for $1}
 	"""
-	template_name = '${3}'
+	template = '${3}'
 
 	def get(self, request$4, **kwargs):
-		pass
+		self.request = request
 
 	def post(self, request$4, **kwargs):
-		pass
+		self.request = request
+
+	def render(self):
+		return render(self.request, self.template, self.response)
 
 	@method_decorator(login_required)
 	def dispatch(self, *args, **kwargs):

@@ -37,6 +37,7 @@ source $ZSH/oh-my-zsh.sh
 alias otsu='cd ~/htdocs/speakers.otsuka.com/htdocs; source ../virtpy/bin/activate'
 alias bounce='sudo service httpd restart'
 alias speak='cd ~/htdocs/speakerdb.com/htdocs; source ../virtpy/bin/activate'
+alias ntp='sudo ntpdate 0.pool.ntp.org'
 
 export TERM='xterm-256color'
 
@@ -44,4 +45,3 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 
 eval `dircolors ~/.dircolors`
-

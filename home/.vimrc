@@ -33,8 +33,6 @@ inoremap <down> <nop>
 
 " Smash escape
 inoremap jk <esc>
-inoremap kj <esc>
-inoremap hj <esc>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -83,6 +81,11 @@ nnoremap <silent> <Leader>t, :Tabularize /,<CR>
 vnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
 nnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
 
+" Easymotion
+let g:EasyMotion_keys = 'asdfghjklwertyuio'
+let g:EasyMotion_keys .= 'ASDFGHJKLWERTYUIO'
+
+
 " Supatab!
 let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
@@ -121,8 +124,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set matchpairs+=<:>
-set foldmethod=indent
-set foldlevel=99
+set foldmethod=manual
 set noautoread
 set laststatus=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
