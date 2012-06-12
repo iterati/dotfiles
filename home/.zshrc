@@ -38,6 +38,7 @@ alias otsu='cd ~/htdocs/speakers.otsuka.com/htdocs; source ../virtpy/bin/activat
 alias bounce='sudo service httpd restart'
 alias speak='cd ~/htdocs/speakerdb.com/htdocs; source ../virtpy/bin/activate'
 alias ntp='sudo ntpdate 0.pool.ntp.org'
+alias esig='cd ~/htdocs/esigner/htdocs; source ../virtpy/bin/activate'
 
 export TERM='xterm-256color'
 
