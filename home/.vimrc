@@ -67,7 +67,7 @@ nnoremap <leader>p :YRShow<CR>
 let g:UltiSnipsEditSplit = 'horizontal'
 let g:UltiSnipsSnippetsDir = '~/.vim/snippets'
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snippets"]
-let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsExpandTrigger = '<leader><tab>'
 let g:UltiSnipsListSnippets = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
@@ -85,12 +85,12 @@ nnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
 let g:EasyMotion_keys = 'asdfghjklwertyuio'
 let g:EasyMotion_keys .= 'ASDFGHJKLWERTYUIO'
 
-
 " Supatab!
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
 "let g:SuperTabLongestHighlight = 1
-set completeopt=menuone,longest
+set completeopt=menuone,longest,preview
+
 
 filetype off
 call pathogen#runtime_append_all_bundles()
@@ -173,7 +173,7 @@ let html_no_rendering=1
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 colorcolumn=79
       \ formatoptions+=c softtabstop=4 cindent
       \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 let python_highlight_all=1
 
 " CSS
