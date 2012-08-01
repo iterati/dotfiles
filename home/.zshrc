@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mine"
+ZSH_THEME="muse"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -34,11 +34,8 @@ plugins=(django git pip python yum)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-alias otsu='cd ~/htdocs/speakers.otsuka.com/htdocs; source ../virtpy/bin/activate'
-alias bounce='sudo service httpd restart'
-alias speak='cd ~/htdocs/speakerdb.com/htdocs; source ../virtpy/bin/activate'
 alias ntp='sudo ntpdate 0.pool.ntp.org'
-alias esig='cd ~/htdocs/esigner/htdocs; source ../virtpy/bin/activate'
+alias gotest='ssh -i ~/.ssh/test.pem ubuntu@ec2-23-22-41-166.compute-1.amazonaws.com'
 
 export TERM='xterm-256color'
 
@@ -46,3 +43,4 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 
 eval `dircolors ~/.dircolors`
+
