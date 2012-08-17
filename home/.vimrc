@@ -5,10 +5,6 @@ let localleader="/"
 " Sometimes my pinky is slow
 command! W :w
 
-" Open/Close quickfix window
-map <leader>c :copen<CR>
-map <leader>cc :cclose<CR>
-
 " No permissions?
 cmap W! w !sudo tee % >/dev/null
 
@@ -16,7 +12,7 @@ map <leader>rc <c-w>s :e $MYVIMRC<CR>
 map <silent> <leader>V :source $MYVIMRC<CR>
 
 " Open new splits
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>w <C-w>v
 nnoremap <leader>W <C-w>s
 
 " Left/Right arrow keys change buffers
@@ -42,9 +38,6 @@ vnoremap > >gv
 noremap <silent><leader>/ :nohls<CR>
 
 " Panel plugins
-map <leader>n :NERDTreeToggle<CR>
-map <leader>g :GundoToggle<CR>
-map <leader>td <Plug>TaskList
 nnoremap <leader>l :TagbarToggle<CR>
 
 " minibufexpl
@@ -75,22 +68,12 @@ nnoremap <leader>ue :UltiSnipsEdit<CR>
 
 " Tabularize
 vnoremap <silent> <Leader>t= :Tabularize /^[^=]*\zs<CR>
-nnoremap <silent> <Leader>t= :Tabularize /^[^=]*\zs<CR>
 vnoremap <silent> <Leader>t, :Tabularize /,<CR>
-nnoremap <silent> <Leader>t, :Tabularize /,<CR>
 vnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
-nnoremap <silent> <Leader>t: :Tabularize /:\zs<CR>
 
 " Easymotion
 let g:EasyMotion_keys = 'asdfghjklwertyuio'
 let g:EasyMotion_keys .= 'ASDFGHJKLWERTYUIO'
-
-" Supatab!
-let g:SuperTabDefaultCompletionType="context"
-"let g:SuperTabContextDefaultCompletionType="<c-x><c-k>"
-"let g:SuperTabLongestHighlight = 1
-set completeopt=menuone,longest,preview
-
 
 filetype off
 call pathogen#runtime_append_all_bundles()
@@ -101,7 +84,7 @@ filetype plugin on
 filetype indent on
 
 set number
-set numberwidth=4
+set numberwidth=3
 set background=dark
 set title
 set wildmenu
@@ -127,8 +110,7 @@ set matchpairs+=<:>
 set foldmethod=manual
 set noautoread
 set laststatus=2
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
-set ignorecase
+set statusline=%F%m%r%h%w
 set smartcase
 set smarttab
 set hlsearch

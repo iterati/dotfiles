@@ -33,9 +33,11 @@ plugins=(django git pip python yum)
 
 source $ZSH/oh-my-zsh.sh
 
+unsetopt correct_all
+
 # Customize to your needs...
 alias ntp='sudo ntpdate 0.pool.ntp.org'
-alias gotest='ssh -i ~/.ssh/test.pem ubuntu@ec2-23-22-41-166.compute-1.amazonaws.com'
+alias gotest='ssh -i ~/.ssh/test.pem ubuntu@ec2-107-22-121-168.compute-1.amazonaws.com'
 
 export TERM='xterm-256color'
 
